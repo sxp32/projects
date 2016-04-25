@@ -1,0 +1,18 @@
+$jumbotron-bg: #669999;
+$navbar-default-bg: #ffffff;
+$body-bg: white;
+$color: black;
+$navbar-height: 40px;
+$body-pg: #e9e9e9;
+$navbar-default-brand-color: #cb2027;
+$link-color: #cb2027;
+$pagination-active-bg: #cb2027;
+$pagination-active-border: #cb2027;
+$brand-primary: #cb2027;
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.center {
+  text-align: center;
+}

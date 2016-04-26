@@ -20,6 +20,6 @@
 *= require 'masonry/infinitescroll'
 *= require 'masonry/right-to-left'
 *= require 'masonry/transitions'
-*= require_self
 *= require_tree .
+*= require_self
 */

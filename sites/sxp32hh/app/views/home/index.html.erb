@@ -1,0 +1,98 @@
+<!--
+<div id="pins" class=transitions-enabled">
+-->
+<% image_urls = Array.new %>
+<% @pins.each do |pin| %>
+<%  image_urls.push pin.image.url(:medium) %>
+<% end %>
+
+<div class="container">
+<!--  <div class="row">
+    <%= carousel_for(image_urls) %>
+  </div>
+-->
+  <div class="row center" >
+    <div class="col-xs-12" >
+      <h1><span class="label label-danger">FIND A HALL FOR YOUR EVENT</span></h1>
+      <h3><span class="label label-danger">Wedding, Birthday, Meeting, Religious ...</span></h1>
+    </div>
+  </div>
+
+  <%= form_tag({controller: "home", action: "about"}, method: "get") do %>
+
+  <div class="row search_bar">
+    <form class="form-inline">
+        <div class="col-xs-12" >
+          <div class="form-group col-xs-4">
+            <input type="text" class="form-control" id="location" placeholder="Enter postcode or suburb name ..." />
+          </div>
+          <div class="form-group col-xs-3">
+            <select class="form-control" id="distance">
+              <option value="10" selected>Within 10Kms</option>
+              <option value="15">Within 15Kms</option>
+              <option value="25">Within 25Kms</option>
+              <option value="50">Within 50Kms</option>
+              <option value="100">Within 100Kms</option>
+              <option value="200">Within 100Kms</option>
+              <option value="500">Within 100Kms</option>
+            </select>
+          </div>
+          <div class="form-group col-xs-3">
+            <select class="form-control" id="halltype">
+              <option value="0" selected>Any Event</option>
+              <option value="1">Birthday Party</option>
+              <option value="2">Classroom Activity</option>
+              <option value="3">Drama Event</option>
+              <option value="4">Exhibition</option>
+              <option value="5">General Meetings</option>
+              <option value="6">Indoor Sport Event</option>
+              <option value="7">Movie Event</option>
+              <option value="8">Music Event</option>
+              <option value="9">Religious Event</option>
+              <option value="10">Social Event</option>
+              <option value="11">Wedding</option>
+              <option value="12">Workshop</option>
+            </select>
+          </div>
+          <div class="form-group col-xs-2">
+            <button type="submit" class="btn btn-info">Search</button>
+          </div>
+        </div>
+      </form>
+  </div>
+
+
+            <!-- select_tag :test_name,options_for_select(categories_options(@categories)), :style=>"styles goes here", :class=>"class added here"  -->
+<% end %>
+
+<div class="center">
+  <%= will_paginate @pins, renderer: BootstrapPagination::Rails %>
+</div>
+
+
+
+
+<% @pins.each do |pin| %>
+
+
+
+  <div class="box">
+
+<% if false %>
+    <div class="panel panel-default">
+      <%= link_to image_tag(pin.image.url(:medium)), pin %><br/>
+
+      <div class="panel-body">
+        <%= pin.description %><br/>
+      </div>
+
+      <div class="panel-footer">
+        <% if pin.user == current_user %>
+          <%= link_to 'Edit', edit_pin_path(pin) %><br/>
+          <%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %><br/>
+        <% end %>
+      </div>
+<% end %>
+<% end %>
+</div>
+</div>
